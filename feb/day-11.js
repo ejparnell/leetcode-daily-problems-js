@@ -54,3 +54,37 @@ var threeSum = function (nums) {
     }
     return results
 };
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var threeSumClosest = function(nums, target) {
+    nums = nums.sort((a, b) => a - b)
+    let closestSum = Infinity
+
+    for (let i = 0; i <= nums.length - 2; i++) {
+        let left = i + 1
+        let right = nums.length - 1
+
+        while (left < right) {
+            let currentSum = nums[i] + nums[left] + nums[right]
+
+            if (currentSum === target) {
+                return currentSum
+            }
+
+            if (Math.abs(currentSum - target) < Math.abs(closestSum - target)) {
+                closestSum = currentSum
+            }
+
+            if (currentSum < target) {
+                left += 1
+            } else {
+                right -= 1
+            }
+        }
+    }
+    return closestSum
+};
