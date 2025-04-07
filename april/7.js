@@ -29,3 +29,11 @@ var containsDuplicate = function(nums) {
     }
     return false
 };
+
+var singleNumber = function(nums) {
+    let found = 0;
+    for (let i = 0; i < nums.length; i++) {
+        found = found ^ nums[i]
+    }
+    return found;
+};
