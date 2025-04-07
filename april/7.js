@@ -8,3 +8,15 @@ var maxProfit = function(prices) {
     }
     return profit;
 };
+
+var rotate = function(nums, k) {
+    k = k % nums.length
+    nums.reverse()
+    let chunk = nums.splice(0, k)
+    chunk.reverse()
+    nums.reverse()
+    let rotated = [...chunk, ...nums]
+    for (let i = 0; i < rotated.length; i++) {
+        nums[i] = rotated[i]
+    }
+};
